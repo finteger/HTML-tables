@@ -35,10 +35,8 @@
                   <td>22</td><td>43</td><td>93</td><td>86</td>
               </tr>    
             </tbody>
-            <tfoot>
-            	 <tr>
-                  <td>Total: 34</td><td>Total: 66</td><td>Total: 146</td> <td>Total: 142</td>
-                 </tr>
+            <tfoot id="tfoot">
+            	
             </tfoot>
         </table>
 
@@ -48,13 +46,25 @@
     
     <script>
     	totals = [34, 66, 146, 142];
+        
+        
+       var tfoot = document.getElementById('tfoot');
+       var row = document.createElement('tr');
    
         
         for(var i = 0; i < totals.length; i++){
-        	
-        
+               
+            //Create a new table cell
+            var cell = document.createElement('td');
+            
+            //Set the content of the cell to the current total value
+            cell.textContent = "Total:" + totals[i]; 
+            
+            row.appendChild(cell);
         }
-    
+        
+        
+    	tfoot.appendChild(row);
     </script>
 
     </html>
